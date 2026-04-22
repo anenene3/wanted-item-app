@@ -1,4 +1,5 @@
 import "./App.css";
+import ItemCard from "./ItemCard";
 
 function App() {
   return (
@@ -6,36 +7,8 @@ function App() {
       <h1>募集一覧</h1>
 
       <div className="item-list">
-        <div className="item-card">
-          <div className="item-image">写真</div>
-          <div className="item-price">5000円</div>
-          <div className="item-name">ゲームソフトA</div>
-        </div>
-
-        <div className="item-card">
-          <div className="item-image">写真</div>
-          <div className="item-price">8000円</div>
-          <div className="item-name">ゲームソフトB</div>
-        </div>
-
-        <div className="item-card">
-          <div className="item-image">写真</div>
-          <div className="item-price">8000円</div>
-          <div className="item-name">ゲームソフトB</div>
-        </div>
-
-        <div className="item-card">
-          <div className="item-image">写真</div>
-          <div className="item-price">8000円</div>
-          <div className="item-name">ゲームソフトB</div>
-        </div>
-
-        <div className="item-card">
-          <div className="item-image">写真</div>
-          <div className="item-price">8000円</div>
-          <div className="item-name">ゲームソフトB</div>
-        </div>
-
+        <ItemCard name="ゲームソフトA" price="5000" /> {/*後で投稿フォームの入力値をItemCardに持つように変更、propsに写真も加える（URLを渡す方式にするかは未定）*/} 
+        <ItemCard name="ゲームソフトB" price="8000" />
       </div>
     </div>
 
