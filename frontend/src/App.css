@@ -41,3 +41,302 @@ h1 {
   padding: 12px;
   font-size: 24px;
 }
+
+.item-list-post-button {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 12px 20px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+.item-detail-image {
+  height: 360px;
+  background-color: #c9dfb8;
+  font-size: 36px;
+  box-sizing: border-box;
+  margin: 36px 180px;
+}
+
+.item-detail-name {
+  border-bottom: 2px solid #000000;
+  font-size: 28px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.item-detail-price {
+  font-size: 28px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.item-detail-description {
+  font-size: 22px;
+  padding: 15px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.item-detail-button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+}
+
+
+
+
+
+.item-post {
+  padding: 30px;
+}
+
+.item-post-contents {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.item-post-contents p {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.item-post-image {
+  width: 220px;
+  height: 60px;
+  font-size: 20px;
+  margin-top: 30px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.item-post-name,
+.item-post-price,
+.item-post-description {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+.item-post-name,
+.item-post-price {
+  height: 50px;
+}
+
+.item-post-description {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.item-post-button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.message-send {
+  padding: 30px;
+}
+
+.message-send-contents {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.message-send-item-name {
+  font-size: 26px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.message-send-item-image {
+  height: 220px;
+  background-color: #c9dfb8;
+  font-size: 36px;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-bottom: 30px;
+}
+
+.message-send-contents p {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.message-send-message {
+  width: 100%;
+  min-height: 180px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+  resize: vertical;
+}
+
+.message-send-address {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+.message-send-cancel-button {
+  margin-top: 30px;
+  margin-right: 16px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.message-send-send-button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.login {
+  padding: 30px;
+}
+
+.login-contents {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.login-contents p {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.login-user-id,
+.login-password {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+.login-send-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.login-signup-text {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+.login-signup-button {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.signup{
+  padding:30px;
+}
+
+.signup-contents {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.signup-contents p {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.signup-user-name,
+.signup-user-id,
+.signup-password,
+.signup-confirm-password {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+  .signup-send-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.signup-cancel-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
