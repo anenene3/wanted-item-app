@@ -1,8 +1,13 @@
 import "./App.css";
+import Header from "./Header";
+import {useNavigate} from "react-router";
 
 function SignUp(){
+  const navigate=useNavigate();
+
   return(
     <div className="signup">
+      <Header isLoggedIn={false} />
       <h1>新規アカウント登録</h1>
       <div className="signup-contents">
         <p>ユーザーネーム：</p>
@@ -17,12 +22,14 @@ function SignUp(){
           className="signup-send-button"
           type="button"
           value="新規登録"
+          onClick={() => navigate("/login")}
         />
 
         <input
           className="signup-cancel-button"
           type="button"
           value="キャンセル"
+          onClick={()=> navigate(-1)}
         />
       </div>
     </div>

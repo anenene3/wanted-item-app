@@ -1,8 +1,13 @@
 import "./App.css";
+import Header from "./Header";
+import {useNavigate} from "react-router";
 
 function Login(){
+  const navigate=useNavigate();
+    
   return(
     <div className="login">
+      <Header isLoggedIn={false} />
       <h1>ログイン</h1>
       <div className="login-contents">
         <p>ユーザーID:</p>
@@ -13,6 +18,7 @@ function Login(){
           className="login-send-button"
           type="button"
           value="ログイン"
+          onClick={() => navigate("/")}
         />
 
         <p className="login-signup-text">アカウントをお持ちでない方</p>
@@ -21,6 +27,7 @@ function Login(){
           className="login-signup-button"
           type="button"
           value="新規登録"
+          onClick={() => navigate("/signup")}
         />
       </div>
     </div>

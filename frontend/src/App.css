@@ -20,6 +20,7 @@ h1 {
   width: 240px;
   border: 1px solid #2c4a7a;
   background-color: white;
+  cursor: pointer;
 }
 
 .item-card-image {
@@ -54,7 +55,9 @@ h1 {
 
 
 
-
+.item-detail {
+  padding: 30px;
+}
 
 .item-detail-image {
   height: 360px;
@@ -86,11 +89,21 @@ h1 {
   line-height: 1.6;
 }
 
-.item-detail-button {
+.item-detail-button-area {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
   margin-top: 30px;
+}
+
+.item-detail-post-button,
+.item-detail-cancel-button {
   padding: 12px 24px;
   font-size: 20px;
+  cursor: pointer;
 }
+
+
 
 
 
@@ -142,15 +155,31 @@ h1 {
   resize: vertical;
 }
 
-.item-post-button {
+.item-post-button-area {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
   margin-top: 30px;
+}
+
+.item-post-post-button,
+.item-post-cancel-button {
   padding: 12px 24px;
   font-size: 20px;
+}
+
+.item-post-post-button {
   border: none;
   background-color: #4a6fa5;
   color: white;
   cursor: pointer;
 }
+
+.item-post-cancel-button {
+  cursor: pointer;
+}
+
+
 
 
 
@@ -209,24 +238,31 @@ h1 {
   border: 1px solid #999;
 }
 
-.message-send-cancel-button {
+.message-send-button-area {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
   margin-top: 30px;
-  margin-right: 16px;
+}
+
+.message-send-cancel-button,
+.message-send-send-button{
   padding: 12px 24px;
   font-size: 20px;
-  border: 1px solid #999;
-  background-color: #f5f5f5;
   cursor: pointer;
 }
 
+
+.message-send-cancel-button {
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  
+}
+
 .message-send-send-button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-size: 20px;
   border: none;
   background-color: #4a6fa5;
   color: white;
-  cursor: pointer;
 }
 
 
@@ -338,5 +374,353 @@ h1 {
   font-size: 20px;
   border: 1px solid #999;
   background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.account-edit {
+  padding: 30px;
+}
+
+.account-edit-contents {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.account-edit-contents p {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.account-edit-user-name,
+.account-edit-password,
+.account-edit-confirm-password {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+.account-edit-send-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.account-edit-cancel-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.account-edit-delete-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #c94f4f;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.my-item-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.my-item-list-post-button {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 12px 20px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+.received-message-card {
+  border: 1px solid #999;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.received-message-card-item-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.received-message-card-sender {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.received-message-card-message-preview {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.received-message-card-date {
+  font-size: 16px;
+  margin-bottom: 16px;
+  text-align: left;
+  color: #666;
+}
+
+.received-message-card-detail-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.received-message-list {
+  padding: 30px;
+}
+
+.received-message-list-contents {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+.received-message-detail {
+  padding: 30px;
+}
+
+.received-message-detail-contents {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.received-message-detail-item-name {
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.received-message-detail-contents p {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.received-message-detail-sender {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+  text-align: left;
+  background-color: white;
+}
+
+.received-message-detail-message-body {
+  min-height: 180px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 16px;
+  border: 1px solid #999;
+  text-align: left;
+  line-height: 1.6;
+  background-color: white;
+}
+
+.received-message-detail-contact {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+  text-align: left;
+  background-color: white;
+}
+
+.received-message-detail-date {
+  font-size: 18px;
+  margin-top: 8px;
+  text-align: left;
+  color: #666;
+}
+
+.received-message-detail-back-button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+}
+
+.header-logo {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-menu input {
+  padding: 10px 18px;
+  font-size: 16px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.header-menu div {
+  font-size: 18px;
+}
+
+.header-user-name {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.item-edit {
+  padding: 30px;
+}
+
+.item-edit-contents {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.item-edit-contents p {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.item-edit-image {
+  width: 220px;
+  height: 60px;
+  font-size: 20px;
+  margin-top: 30px;
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.item-edit-name,
+.item-edit-price,
+.item-edit-description {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+}
+
+.item-edit-name,
+.item-edit-price {
+  height: 50px;
+}
+
+.item-edit-description {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.item-edit-button-area {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.item-edit-post-button,
+.item-edit-cancel-button {
+  padding: 12px 24px;
+  font-size: 20px;
+}
+
+.item-edit-post-button {
+  border: none;
+  background-color: #4a6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.item-edit-cancel-button {
   cursor: pointer;
 }

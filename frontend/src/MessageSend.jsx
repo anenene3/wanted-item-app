@@ -1,8 +1,13 @@
 import "./App.css";
+import Header from "./Header";
+import {useNavigate} from "react-router";
 
 function MessageSend(props) {
+  const navigate=useNavigate();
+
   return (
     <div className="message-send">
+      <Header isLoggedIn={true} userName="yamakazu" />
       <h1>メッセージ送信</h1>
 
       <div className="message-send-contents">
@@ -15,16 +20,20 @@ function MessageSend(props) {
         <p>連絡先</p>
         <input className="message-send-address" />
 
-        <input
-          className="message-send-cancel-button"
-          type="button"
-          value="キャンセル"
-        />
-        <input
-          className="message-send-send-button"
-          type="button"
-          value="送信"
-        />
+        <div className="message-send-button-area">
+          <input
+            className="message-send-cancel-button"
+            type="button"
+            value="キャンセル"
+            onClick={() => navigate(-1)}
+          />
+          <input
+            className="message-send-send-button"
+            type="button"
+            value="送信"
+            onClick={() => navigate(-1)}
+          />
+        </div>
       </div>
     </div>
   );
