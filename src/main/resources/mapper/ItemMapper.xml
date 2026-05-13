@@ -31,4 +31,36 @@
 	    FROM items
 	    WHERE item_id = #{itemId}
 	</select>
+	
+	<insert id="insert" parameterType="io.github.anenene3.wanteditemapp.dto.ItemForm">
+	    INSERT INTO items (
+	        user_id,
+	        image_path,
+	        item_name,
+	        price,
+	        description,
+	        created_at,
+	        updated_at
+	    )
+	    VALUES (
+	        #{userId},
+	        #{imagePath},
+	        #{itemName},
+	        #{price},
+	        #{description},
+	        CURRENT_TIMESTAMP,
+	        CURRENT_TIMESTAMP
+	    )
+	</insert>
+	
+	<update id="update" parameterType="io.github.anenene3.wanteditemapp.dto.ItemForm">
+	    UPDATE items
+	    SET
+	        image_path = #{imagePath},
+	        item_name = #{itemName},
+	        price = #{price},
+	        description = #{description},
+	        updated_at = CURRENT_TIMESTAMP
+	    WHERE item_id = #{itemId}
+	</update>
 </mapper>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import io.github.anenene3.wanteditemapp.dto.Item;
+import io.github.anenene3.wanteditemapp.dto.ItemForm;
 import io.github.anenene3.wanteditemapp.mapper.ItemMapper;
 
 @Service
@@ -19,8 +20,16 @@ public class ItemService {
     public List<Item> findAll() {
         return itemMapper.findAll();
     }
-    
+
     public Item findById(Long itemId) {
         return itemMapper.findById(itemId);
+    }
+
+    public int insert(ItemForm itemForm) {
+        return itemMapper.insert(itemForm);
+    }
+    
+    public int update(ItemForm itemForm) {
+        return itemMapper.update(itemForm);
     }
 }

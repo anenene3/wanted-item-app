@@ -2,11 +2,20 @@ package io.github.anenene3.wanteditemapp.dto;
 
 public class ItemForm {
 
+    private Long itemId;
     private Long userId;
     private String imagePath;
     private String itemName;
     private Integer price;
     private String description;
+
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
+    }
 
     public Long getUserId() {
         return userId;
