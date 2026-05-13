@@ -75,10 +75,10 @@
 - Git / GitHub
 
 ## 設計・構成
-フロントエンドは React、バックエンドは Java / Spring Boot、データベースは PostgreSQL を使用しています。  
-募集一覧・募集詳細・募集投稿・募集編集について、React から Spring Boot の API を呼び出し、MyBatis 経由で PostgreSQL のデータを取得・更新する構成です。
+フロントエンドは React、バックエンドは Java / Spring Boot、データベースは PostgreSQL を使用した。  
+募集一覧・募集詳細・募集投稿・募集編集について、React から Spring Boot の API を呼び出し、MyBatis 経由で PostgreSQL のデータを取得・更新する構成である。
 
-バックエンドは以下の流れで処理を行っています。
+バックエンドは以下の流れで処理を行う。
 
 - Controller
 - Service
@@ -99,4 +99,4 @@
 ![ER図](docs/wanted-item-appER図202605081343.png)
 
 ## 現在の進捗
-募集一覧表示・募集詳細表示・募集投稿・募集編集まで、DB連携を含めて実装済みです。
+募集一覧表示・募集詳細表示・募集投稿・募集編集まで、DB連携を含めて実装済み。
