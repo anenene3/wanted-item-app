@@ -63,4 +63,23 @@
 	        updated_at = CURRENT_TIMESTAMP
 	    WHERE item_id = #{itemId}
 	</update>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM items
+		WHERE item_id = #{itemId}
+	</delete>
+	
+	<select id="findByUserId" resultType="io.github.anenene3.wanteditemapp.dto.Item">
+	    SELECT
+	        item_id,
+	        user_id,
+	        image_path,
+	        item_name,
+	        price,
+	        description,
+	        created_at,
+	        updated_at
+	    FROM items
+	    WHERE user_id = #{userId}
+	</select>
 </mapper>

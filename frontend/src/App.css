@@ -704,14 +704,18 @@ h1 {
 .item-edit-button-area {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   margin-top: 30px;
 }
 
 .item-edit-post-button,
-.item-edit-cancel-button {
+.item-edit-cancel-button,
+.item-edit-delete-button {
+  min-width: 140px;
+  height: 56px;
   padding: 12px 24px;
   font-size: 20px;
+  box-sizing: border-box;
 }
 
 .item-edit-post-button {
@@ -722,5 +726,27 @@ h1 {
 }
 
 .item-edit-cancel-button {
+  border: 1px solid #999;
+  background-color: #f5f5f5;
+  color: black;
   cursor: pointer;
+}
+
+.item-edit-delete-button {
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  cursor: pointer;
+}
+
+.item-edit-post-button:hover {
+  opacity: 0.9;
+}
+
+.item-edit-delete-button:hover {
+  opacity: 0.9;
+}
+
+.item-edit-cancel-button:hover {
+  background-color: #e5e5e5;
 }

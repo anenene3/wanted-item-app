@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.ItemForm;
@@ -45,5 +46,16 @@ public class ItemController {
         itemForm.setItemId(itemId);
         itemService.update(itemForm);
         return "更新成功";
+    }
+    
+    @DeleteMapping("/items/{itemId}")
+    public String delete(@PathVariable Long itemId)	{
+    	itemService.delete(itemId);
+    	return "削除成功";
+    }
+    
+    @GetMapping("/users/{userId}/items")
+    public List<Item> findByUserId(@PathVariable Long userId) {
+        return itemService.findByUserId(userId);
     }
 }

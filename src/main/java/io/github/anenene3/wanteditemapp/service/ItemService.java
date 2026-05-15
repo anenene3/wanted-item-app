@@ -32,4 +32,12 @@ public class ItemService {
     public int update(ItemForm itemForm) {
         return itemMapper.update(itemForm);
     }
+    
+    public int delete(Long itemId) {
+    	return itemMapper.delete(itemId);
+    }
+    
+    public List<Item> findByUserId(Long userId) {
+        return itemMapper.findByUserId(userId);
+    }
 }

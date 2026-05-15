@@ -22,26 +22,40 @@ function ItemEdit() {
       .catch((error) => console.error("編集データ取得エラー:", error));
   }, [itemId]);
 
-  const handleSubmit = () => {
-    fetch(`http://localhost:8080/items/${itemId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        imagePath: null,
-        itemName: itemName,
-        price: Number(price),
-        description: description
-      })
+  const handleUpdate = () => {
+  fetch(`http://localhost:8080/items/${itemId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      imagePath: null,
+      itemName: itemName,
+      price: Number(price),
+      description: description
     })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log("更新成功:", data);
-        navigate(`/item-detail/${itemId}`);
-      })
-      .catch((error) => console.error("更新エラー:", error));
-  };
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log("更新成功:", data);
+      navigate(`/item-detail/${itemId}`);
+    })
+    .catch((error) => console.error("更新エラー:", error));
+};
+
+const handleDelete = () => {
+  fetch(`http://localhost:8080/items/${itemId}`, {
+    method: "DELETE"
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log("削除成功:", data);
+      navigate(`/my-items`);
+    })
+    .catch((error) => console.error("削除エラー:", error));
+};
+
+  
 
   return (
     <div className="item-edit">
@@ -87,7 +101,13 @@ function ItemEdit() {
             className="item-edit-post-button"
             type="button"
             value="編集完了"
-            onClick={handleSubmit}
+            onClick={handleUpdate}
+          />
+          <input
+            className="item-edit-delete-button"
+            type="button"
+            value="削除"
+            onClick={handleDelete}
           />
         </div>
       </div>

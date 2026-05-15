@@ -17,4 +17,8 @@ public interface ItemMapper {
     int insert(ItemForm itemForm);
     
     int update(ItemForm itemForm);
+    
+    int delete(Long itemId);
+    
+    List<Item> findByUserId(Long userId);
 }
