@@ -34,7 +34,7 @@ function ItemPost() {
 
   return (
     <div className="item-post">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>募集投稿</h1>
 
       <div className="item-post-contents">

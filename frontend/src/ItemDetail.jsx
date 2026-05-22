@@ -22,7 +22,7 @@ function ItemDetail(props) {
 
   return (
     <div className="item-detail">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>募集詳細</h1>
 
       <div className="item-detail-contents">

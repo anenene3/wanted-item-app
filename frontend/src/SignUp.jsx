@@ -7,7 +7,7 @@ function SignUp(){
 
   return(
     <div className="signup">
-      <Header isLoggedIn={false} />
+      <Header />
       <h1>新規アカウント登録</h1>
       <div className="signup-contents">
         <p>ユーザーネーム：</p>

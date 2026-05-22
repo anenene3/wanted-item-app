@@ -7,7 +7,7 @@ function ReceivedMessageDetail(props) {
 
   return (
     <div className="received-message-detail">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>受信メッセージ詳細</h1>
       <div className="received-message-detail-contents">
         <div className="received-message-detail-item-name">{props.itemName}</div>

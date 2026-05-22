@@ -7,7 +7,7 @@ function MessageSend(props) {
 
   return (
     <div className="message-send">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>メッセージ送信</h1>
 
       <div className="message-send-contents">

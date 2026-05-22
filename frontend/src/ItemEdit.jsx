@@ -59,7 +59,7 @@ const handleDelete = () => {
 
   return (
     <div className="item-edit">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>募集編集</h1>
 
       <div className="item-edit-contents">

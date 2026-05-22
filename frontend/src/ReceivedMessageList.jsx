@@ -8,7 +8,7 @@ function ReceivedMessageList() {
 
   return (
     <div className="received-message-list">
-      <Header isLoggedIn={true} userName="yamakazu" />
+      <Header />
       <h1>受信メッセージ一覧</h1>
 
       <div className="received-message-list-contents">

@@ -17,7 +17,7 @@ function ItemList() {
 
   return (
     <div className="main">
-      <Header isLoggedIn={false} />
+      <Header />
       <h1>募集一覧</h1>
 
       <div className="item-list">
