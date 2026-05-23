@@ -1,4 +1,4 @@
-package io.github.anenene3.wanteditemapp;
+package io.github.anenene3.wanteditemapp.controller;
 
 import java.util.List;
 

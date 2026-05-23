@@ -1,4 +1,4 @@
-package io.github.anenene3.wanteditemapp;
+package io.github.anenene3.wanteditemapp.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
