@@ -1,16 +1,16 @@
 import "./App.css";
-import ItemList from "./ItemList";
-import ItemDetail from "./ItemDetail";
-import ItemPost from "./ItemPost";
-import MessageSend from "./MessageSend";
-import Login from "./Login";
-import SignUp from "./SignUp";
-import AccountEdit from "./AccountEdit";
-import MyItemList from "./MyItemList";
-import ReceivedMessageList from "./ReceivedMessageList";
-import ReceivedMessageDetail from "./ReceivedMessageDetail";
+import ItemList from "./pages/ItemList";
+import ItemDetail from "./pages/ItemDetail";
+import ItemPost from "./pages/ItemPost";
+import MessageSend from "./pages/MessageSend";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import AccountEdit from "./pages/AccountEdit";
+import MyItemList from "./pages/MyItemList";
+import ReceivedMessageList from "./pages/ReceivedMessageList";
+import ReceivedMessageDetail from "./pages/ReceivedMessageDetail";
 import { Routes, Route } from "react-router";
-import ItemEdit from "./ItemEdit";
+import ItemEdit from "./pages/ItemEdit";
 
 
 function App() {

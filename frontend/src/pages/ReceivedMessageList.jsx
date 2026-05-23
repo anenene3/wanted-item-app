@@ -1,6 +1,6 @@
-import "./App.css";
-import Header from "./Header";
-import ReceivedMessageCard from "./ReceivedMessageCard";
+import "../App.css";
+import Header from "../components/Header";
+import ReceivedMessageCard from "../components/ReceivedMessageCard";
 import {useNavigate} from "react-router";
 
 function ReceivedMessageList() {

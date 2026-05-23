@@ -1,38 +1,38 @@
-import "./App.css";
-import ItemCard from "./ItemCard";
-import Header from "./Header";
+import "../App.css";
+import Header from "../components/Header";
+import ItemCard from "../components/ItemCard";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
-function MyItemList() {
+function ItemList() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/users/1/items")
+    fetch("http://localhost:8080/items")
       .then((response) => response.json())
       .then((data) => setItems(data))
-      .catch((error) => console.error("自分の募集一覧取得エラー:", error));
+      .catch((error) => console.error("データ取得エラー:", error));
   }, []);
 
   return (
     <div className="main">
       <Header />
-      <h1>自分の募集一覧</h1>
+      <h1>募集一覧</h1>
 
-      <div className="my-item-list">
+      <div className="item-list">
         {items.map((item) => (
           <ItemCard
             key={item.itemId}
             name={item.itemName}
             price={item.price}
-            onClick={() => navigate(`/item-edit/${item.itemId}`)}
+            onClick={() => navigate(`/item-detail/${item.itemId}`)}
           />
         ))}
       </div>
 
       <input
-        className="my-item-list-post-button"
+        className="item-list-post-button"
         type="button"
         value="募集投稿"
         onClick={() => navigate("/item-post")}
@@ -41,4 +41,4 @@ function MyItemList() {
   );
 }
 
-export default MyItemList;
+export default ItemList;
