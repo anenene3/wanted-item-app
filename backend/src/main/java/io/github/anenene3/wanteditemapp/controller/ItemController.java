@@ -15,6 +15,8 @@ import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.ItemForm;
 import io.github.anenene3.wanteditemapp.service.ItemService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class ItemController {
@@ -36,13 +38,13 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    public String insert(@RequestBody ItemForm itemForm) {
+    public String insert(@Valid @RequestBody ItemForm itemForm) {
         itemService.insert(itemForm);
         return "登録成功";
     }
 
     @PutMapping("/items/{itemId}")
-    public String update(@PathVariable Long itemId, @RequestBody ItemForm itemForm) {
+    public String update(@PathVariable Long itemId, @Valid @RequestBody ItemForm itemForm) {
         itemForm.setItemId(itemId);
         itemService.update(itemForm);
         return "更新成功";
