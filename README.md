@@ -1,6 +1,3 @@
-ブランチの練習　feature/practice-branch
-ブランチの練習　feature/test-push-branch
-
 # wanted-item-app
 
 欲しい人が商品説明と買取希望金額を登録し、売り手を募集できる買い手先行型Webアプリ
