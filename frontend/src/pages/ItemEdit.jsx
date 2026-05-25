@@ -23,18 +23,43 @@ function ItemEdit() {
   }, [itemId]);
 
   const handleUpdate = () => {
-  fetch(`http://localhost:8080/items/${itemId}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      imagePath: null,
-      itemName: itemName,
-      price: Number(price),
-      description: description
+    if (!itemName.trim()) {
+      alert("募集商品名を入力してください");
+      return;
+    }
+
+    if (!price.trim()) {
+      alert("買い取り金額を入力してください");
+      return;
+    }
+
+    if (isNaN(price)) {
+      alert("買い取り金額は半角数字で入力してください");
+      return;
+    }
+
+    if (Number(price) <= 0) {
+      alert("買い取り金額は1以上で入力してください");
+      return;
+    }
+
+    if (!description.trim()) {
+      alert("詳細説明・募集条件を入力してください");
+      return;
+    } 
+
+    fetch(`http://localhost:8080/items/${itemId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        imagePath: null,
+        itemName: itemName,
+        price: Number(price),
+        description: description
+      })
     })
-  })
     .then((response) => response.text())
     .then((data) => {
       console.log("更新成功:", data);
