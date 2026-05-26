@@ -39,8 +39,11 @@ public class ItemController {
 
     @PostMapping("/items")
     public String insert(@Valid @RequestBody ItemForm itemForm) {
-        itemService.insert(itemForm);
-        return "登録成功";
+    	int count = itemService.insert(itemForm);
+    	if (count == 1) {
+    	    return "登録成功";
+    	}
+    	return "登録失敗";
     }
 
     @PutMapping("/items/{itemId}")
