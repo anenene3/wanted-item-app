@@ -35,6 +35,15 @@ function ItemPost() {
       alert("詳細説明・募集条件を入力してください");
       return;
     }
+    
+    const savedUser = localStorage.getItem("loginUser");
+    const loginUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!loginUser) {
+      alert("ログイン情報が見つかりません");
+      navigate("/login");
+      return;
+    }
 
     fetch("http://localhost:8080/items", {
       method: "POST",
@@ -42,7 +51,7 @@ function ItemPost() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        userId: 1,
+        userId: loginUser.userId,
         imagePath: null,
         itemName: itemName,
         price: Number(price),
