@@ -16,5 +16,17 @@
         WHERE login_id = #{loginId}
           AND password = #{password}
     </select>
-
+    
+    <insert id="insert" parameterType="io.github.anenene3.wanteditemapp.dto.UserForm">
+    	INSERT INTO users (
+    		user_name, 
+    		login_id, 
+    		password
+    	)
+    	VALUES (
+    		#{userName}, 
+    		#{loginId}, 
+    		#{password}
+    	);
+	</insert>
 </mapper>

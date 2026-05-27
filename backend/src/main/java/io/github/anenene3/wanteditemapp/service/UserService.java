@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import io.github.anenene3.wanteditemapp.dto.LoginForm;
 import io.github.anenene3.wanteditemapp.dto.User;
 import io.github.anenene3.wanteditemapp.mapper.UserMapper;
+import io.github.anenene3.wanteditemapp.dto.UserForm;
 
 @Service
 public class UserService {
@@ -17,5 +18,9 @@ public class UserService {
 
     public User login(LoginForm loginForm) {
         return userMapper.findByLoginInfo(loginForm);
+    }
+    
+    public int insert(UserForm userForm) {
+    	return userMapper.insert(userForm);
     }
 }
