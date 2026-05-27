@@ -102,4 +102,5 @@
 ![ER図](docs/wanted-item-appER図202605081343.png)
 
 ## シーケンス図
+### 募集投稿機能
 ![募集投稿機能](docs/item-post-sequence202605271243.png)
