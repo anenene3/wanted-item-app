@@ -29,4 +29,16 @@
     		#{password}
     	);
 	</insert>
+	
+	<select id="findByLoginId" parameterType="java.lang.String"
+			resultType="io.github.anenene3.wanteditemapp.dto.User">
+		SELECT
+            user_id,
+            user_name,
+            login_id,
+            password
+        FROM users
+        WHERE login_id = #{loginId}
+	</select>
+	
 </mapper>

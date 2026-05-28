@@ -21,6 +21,12 @@ public class UserService {
     }
     
     public int insert(UserForm userForm) {
+    	User existingUser = userMapper.findByLoginId(userForm.getLoginId());
+    	
+    	if(existingUser != null) {
+    		return 0;
+    	}
+    	
     	return userMapper.insert(userForm);
     }
 }

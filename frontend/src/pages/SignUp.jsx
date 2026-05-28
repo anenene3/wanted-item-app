@@ -49,23 +49,26 @@ function SignUp(){
         password: password
       })
     })
-      .then((response) => response.text())
-      .then((data) => {
-        if (data === "登録成功") {
-          console.log("登録成功:", data);
-          navigate("/login");
-          return;
-        }
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "登録成功") {
+        console.log("登録成功:", data);
+        navigate("/login");
+        return;
+      }
 
-        if (data === "ログインID重複") {
-          alert("そのユーザーIDは既に使われています");
-          return;
-        }
+      if (data === "ログインID重複") {
+        alert("そのユーザーIDは既に使われています");
+        return;
+      }
 
-        alert("登録に失敗しました");
-      })
+      alert(data);
+    })
+    .catch((error) => {
+      console.error("登録エラー:", error);
+      alert("登録中にエラーが発生しました");
+    })
   };
-
 
   return(
     <div className="signup">
