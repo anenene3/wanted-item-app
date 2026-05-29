@@ -23,6 +23,7 @@ public class UserForm {
         regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z\\d]).{8,}$",
         message = "パスワードは8文字以上で、大文字・小文字・数字・記号をそれぞれ1つ以上含めてください"
     )
+    @Size(max = 72, message = "パスワードは72文字以内で入力してください")
     private String password;
 
     public String getUserName() {

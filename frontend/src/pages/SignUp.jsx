@@ -52,7 +52,7 @@ function SignUp(){
     .then((response) => response.text())
     .then((data) => {
       if (data === "登録成功") {
-        console.log("登録成功:", data);
+        alert("アカウント登録が完了しました。ログインしてください。");
         navigate("/login");
         return;
       }

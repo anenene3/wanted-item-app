@@ -20,12 +20,14 @@ function Login() {
         password: password
       })
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data || !data.userId) {
+      .then((response) => response.text())
+      .then((text) => {
+        if (!text) {
           alert("ログインIDまたはパスワードが違います");
           return;
         }
+
+        const data = JSON.parse(text);
 
         localStorage.setItem("loginUser", JSON.stringify(data));
         navigate("/");
