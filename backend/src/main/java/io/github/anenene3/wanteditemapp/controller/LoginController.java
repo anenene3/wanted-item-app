@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.anenene3.wanteditemapp.dto.LoginForm;
-import io.github.anenene3.wanteditemapp.dto.User;
 import io.github.anenene3.wanteditemapp.service.UserService;
+import io.github.anenene3.wanteditemapp.dto.LoginUserDto;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestBody LoginForm loginForm) {
+    public LoginUserDto login(@RequestBody LoginForm loginForm) {
         return userService.login(loginForm);
     }
 }

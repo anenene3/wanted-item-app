@@ -4,10 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import io.github.anenene3.wanteditemapp.dto.AccountUpdateForm;
 import io.github.anenene3.wanteditemapp.dto.LoginForm;
 import io.github.anenene3.wanteditemapp.dto.User;
 import io.github.anenene3.wanteditemapp.mapper.UserMapper;
 import io.github.anenene3.wanteditemapp.dto.UserForm;
+import io.github.anenene3.wanteditemapp.dto.LoginUserDto;
 
 @Service
 public class UserService {
@@ -19,7 +21,7 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public User login(LoginForm loginForm) {
+    public LoginUserDto login(LoginForm loginForm) {
         User user = userMapper.findByLoginId(loginForm.getLoginId());
 
         if (user == null) {
@@ -30,7 +32,11 @@ public class UserService {
             return null;
         }
 
-        return user;
+        return new LoginUserDto(
+            user.getUserId(),
+            user.getUserName(),
+            user.getLoginId()
+        );
     }
     
     public int insert(UserForm userForm) {
@@ -42,5 +48,38 @@ public class UserService {
     	
     	userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
     	return userMapper.insert(userForm);
+    }
+    
+    public LoginUserDto findLoginUserById(long userId) {
+    	User user = userMapper.findById(userId);
+    	
+    	 if (user == null) {
+    	        return null;
+    	 }
+    	 
+    	 return new LoginUserDto(
+    		 user.getUserId(),
+             user.getUserName(),
+             user.getLoginId()
+         );
+    }
+    
+    public int update(AccountUpdateForm accountUpdateForm) {
+    	User existingUser = userMapper.findById(accountUpdateForm.getUserId());
+
+        if (existingUser == null) {
+            return 0;
+        }
+
+        if (accountUpdateForm.getPassword() == null || accountUpdateForm.getPassword().isBlank()) {
+            return userMapper.updateUserNameOnly(accountUpdateForm);
+        }
+
+        accountUpdateForm.setPassword(passwordEncoder.encode(accountUpdateForm.getPassword()));
+        return userMapper.updateWithPassword(accountUpdateForm);
+    }
+    
+    public int delete(long userId) {
+    	return userMapper.delete(userId);
     }
 }
