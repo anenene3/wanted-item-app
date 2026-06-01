@@ -10,6 +10,7 @@ import io.github.anenene3.wanteditemapp.dto.User;
 import io.github.anenene3.wanteditemapp.mapper.UserMapper;
 import io.github.anenene3.wanteditemapp.dto.UserForm;
 import io.github.anenene3.wanteditemapp.dto.LoginUserDto;
+import io.github.anenene3.wanteditemapp.dto.AccountEditDto;
 
 @Service
 public class UserService {
@@ -50,17 +51,16 @@ public class UserService {
     	return userMapper.insert(userForm);
     }
     
-    public LoginUserDto findLoginUserById(long userId) {
+    public AccountEditDto findLoginUserById(long userId) {
     	User user = userMapper.findById(userId);
     	
     	 if (user == null) {
     	        return null;
     	 }
     	 
-    	 return new LoginUserDto(
+    	 return new AccountEditDto(
     		 user.getUserId(),
-             user.getUserName(),
-             user.getLoginId()
+             user.getUserName()
          );
     }
     

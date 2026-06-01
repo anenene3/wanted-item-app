@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import io.github.anenene3.wanteditemapp.service.UserService;
 import jakarta.validation.Valid;
-import io.github.anenene3.wanteditemapp.dto.LoginUserDto;
 import io.github.anenene3.wanteditemapp.dto.AccountUpdateForm;
+import io.github.anenene3.wanteditemapp.dto.AccountEditDto;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -25,7 +25,7 @@ public class AccountUpdateController {
     }
 
     @GetMapping("/accounts/{userId}")
-    public LoginUserDto findById(@PathVariable Long userId) {
+    public AccountEditDto findById(@PathVariable Long userId) {
         return userService.findLoginUserById(userId);
     }
 
