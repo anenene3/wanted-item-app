@@ -33,6 +33,10 @@ public class SignUpController {
             return "登録成功";
         }
 
-        return "ログインID重複";
+        if (count == 0) {
+            return "ログインID重複";
+        }
+
+        return "登録失敗";
     }
 }

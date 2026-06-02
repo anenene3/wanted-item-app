@@ -41,14 +41,20 @@ public class UserService {
     }
     
     public int insert(UserForm userForm) {
-    	User existingUser = userMapper.findByLoginId(userForm.getLoginId());
-    	
-    	if(existingUser != null) {
-    		return 0;
-    	}
-    	
-    	userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
-    	return userMapper.insert(userForm);
+        User existingUser = userMapper.findByLoginId(userForm.getLoginId());
+
+        if (existingUser != null) {
+            return 0;
+        }
+
+        userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
+        int count = userMapper.insert(userForm);
+
+        if (count == 1) {
+            return 1;
+        }
+
+        return -1;
     }
     
     public AccountEditDto findLoginUserById(long userId) {

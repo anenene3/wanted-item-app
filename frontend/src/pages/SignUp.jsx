@@ -62,6 +62,11 @@ function SignUp(){
         return;
       }
 
+      if (data === "登録失敗") {
+        alert("登録に失敗しました");
+        return;
+      }
+
       alert(data);
     })
     .catch((error) => {
