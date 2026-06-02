@@ -135,7 +135,7 @@ function AccountEdit(){
           onChange={(e) => setUserName(e.target.value)}
         />
 
-        <p>パスワード:</p>
+        <p>新しいパスワード:</p>
         
         <input 
           className="account-edit-password" 
@@ -144,7 +144,7 @@ function AccountEdit(){
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <p>パスワード（確認用）:</p>
+        <p>新しいパスワード（確認用）:</p>
         
         <input 
         className="account-edit-confirm-password" 

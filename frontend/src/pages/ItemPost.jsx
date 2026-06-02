@@ -1,7 +1,7 @@
 import "../App.css";
 import Header from "../components/Header";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ItemPost() {
   const navigate = useNavigate();
@@ -9,6 +9,17 @@ function ItemPost() {
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("loginUser");
+    const loginUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!loginUser || !loginUser.userId) {
+      alert("ログインしてください");
+      navigate("/login");
+      return;
+    }
+  }, [navigate]);
 
   const handleSubmit = () => {
      if (!itemName.trim()) {
@@ -39,7 +50,7 @@ function ItemPost() {
     const savedUser = localStorage.getItem("loginUser");
     const loginUser = savedUser ? JSON.parse(savedUser) : null;
 
-    if (!loginUser) {
+    if (!loginUser || !loginUser.userId) {
       alert("ログイン情報が見つかりません");
       navigate("/login");
       return;

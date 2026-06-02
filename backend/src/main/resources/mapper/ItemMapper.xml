@@ -82,4 +82,5 @@
 	    FROM items
 	    WHERE user_id = #{userId}
 	</select>
+	
 </mapper>

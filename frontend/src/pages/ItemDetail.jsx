@@ -3,13 +3,18 @@ import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 
-function ItemDetail(props) {
+function ItemDetail() {
   const navigate = useNavigate();
   const { itemId } = useParams();
 
   const [item, setItem] = useState(null);
+  const [loginUser, setLoginUser] = useState(null);
 
   useEffect(() => {
+    const savedUser = localStorage.getItem("loginUser");
+    const parsedUser = savedUser ? JSON.parse(savedUser) : null;
+    setLoginUser(parsedUser);
+
     fetch(`http://localhost:8080/items/${itemId}`)
       .then((response) => response.json())
       .then((data) => setItem(data))
@@ -19,6 +24,8 @@ function ItemDetail(props) {
   if (!item) {
     return <div>読み込み中...</div>;
   }
+
+  const isMyItem = loginUser && item.userId === loginUser.userId;
 
   return (
     <div className="item-detail">
@@ -43,12 +50,22 @@ function ItemDetail(props) {
             value="戻る"
             onClick={() => navigate(-1)}
           />
-          <input
-            className="item-detail-post-button"
-            type="submit"
-            value={props.buttonLabel}
-            onClick={() => navigate(props.nextPath)}
-          />
+
+          {isMyItem ? (
+            <input
+              className="item-detail-post-button"
+              type="button"
+              value="編集する"
+              onClick={() => navigate(`/item-edit/${item.itemId}`)}
+            />
+          ) : (
+            <input
+              className="item-detail-post-button"
+              type="button"
+              value="連絡する"
+              onClick={() => navigate(`/message-send/${item.itemId}`)}
+            />
+          )}
         </div>
       </div>
     </div>

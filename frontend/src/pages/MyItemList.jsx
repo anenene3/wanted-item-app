@@ -9,11 +9,21 @@ function MyItemList() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/users/1/items")
+
+    const savedUser = localStorage.getItem("loginUser");
+    const loginUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!loginUser || !loginUser.userId) {
+      alert("ログインしてください");
+      navigate("/login");
+      return;
+    }
+
+    fetch(`http://localhost:8080/users/${loginUser.userId}/items`)
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error("自分の募集一覧取得エラー:", error));
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="main">

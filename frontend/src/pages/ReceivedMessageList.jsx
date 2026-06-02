@@ -2,9 +2,21 @@ import "../App.css";
 import Header from "../components/Header";
 import ReceivedMessageCard from "../components/ReceivedMessageCard";
 import {useNavigate} from "react-router";
+import { useEffect, useState } from "react";
 
 function ReceivedMessageList() {
   const navigate=useNavigate();
+
+    useEffect(() => {
+      const savedUser = localStorage.getItem("loginUser");
+      const loginUser = savedUser ? JSON.parse(savedUser) : null;
+
+      if (!loginUser || !loginUser.userId) {
+        alert("ログインしてください");
+        navigate("/login");
+        return;
+      }
+    }, [navigate]);
 
   return (
     <div className="received-message-list">

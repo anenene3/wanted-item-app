@@ -12,15 +12,24 @@ function ItemEdit() {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
+    const savedUser = localStorage.getItem("loginUser");
+    const loginUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!loginUser || !loginUser.userId) {
+      alert("ログインしてください");
+      navigate("/login");
+      return;
+    }
+
     fetch(`http://localhost:8080/items/${itemId}`)
       .then((response) => response.json())
       .then((data) => {
         setItemName(data.itemName);
-        setPrice(data.price);
+        setPrice(String(data.price));
         setDescription(data.description);
       })
       .catch((error) => console.error("編集データ取得エラー:", error));
-  }, [itemId]);
+  }, [itemId, navigate]);
 
   const handleUpdate = () => {
     if (!itemName.trim()) {
@@ -66,9 +75,14 @@ function ItemEdit() {
       navigate(`/item-detail/${itemId}`);
     })
     .catch((error) => console.error("更新エラー:", error));
-};
+  };
 
 const handleDelete = () => {
+  const result = window.confirm("本当に削除しますか？");
+  if (!result) {
+    return;
+  }
+
   fetch(`http://localhost:8080/items/${itemId}`, {
     method: "DELETE"
   })

@@ -8,6 +8,7 @@ import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.ItemForm;
 import io.github.anenene3.wanteditemapp.mapper.ItemMapper;
 
+
 @Service
 public class ItemService {
 
@@ -37,7 +38,8 @@ public class ItemService {
     	return itemMapper.delete(itemId);
     }
     
-    public List<Item> findByUserId(Long userId) {
+    public List<Item> findByUserId(long userId) {
         return itemMapper.findByUserId(userId);
     }
+
 }

@@ -7,18 +7,21 @@ import org.apache.ibatis.annotations.Mapper;
 import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.ItemForm;
 
+import org.apache.ibatis.annotations.Param;
+
 @Mapper
 public interface ItemMapper {
 
     List<Item> findAll();
 
-    Item findById(Long itemId);
+    Item findById(@Param("itemId") Long itemId);
 
     int insert(ItemForm itemForm);
     
     int update(ItemForm itemForm);
     
-    int delete(Long itemId);
+    int delete(@Param("itemId") Long itemId);
     
-    List<Item> findByUserId(Long userId);
+    List<Item> findByUserId(@Param("userId") Long userId);
+    
 }
