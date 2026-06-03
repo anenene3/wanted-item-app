@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.ItemForm;
 import io.github.anenene3.wanteditemapp.service.ItemService;
+import org.springframework.validation.BindingResult;
 
 import jakarta.validation.Valid;
 
@@ -38,12 +39,18 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    public String insert(@Valid @RequestBody ItemForm itemForm) {
-    	int count = itemService.insert(itemForm);
-    	if (count == 1) {
-    	    return "登録成功";
-    	}
-    	return "登録失敗";
+    public String insert(@Valid @RequestBody ItemForm itemForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return bindingResult.getFieldError().getDefaultMessage();
+        }
+
+        int count = itemService.insert(itemForm);
+
+        if (count == 1) {
+            return "登録成功";
+        }
+
+        return "登録失敗";
     }
 
     @PutMapping("/items/{itemId}")
