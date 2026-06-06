@@ -71,10 +71,18 @@ function ItemEdit() {
     })
     .then((response) => response.text())
     .then((data) => {
-      console.log("更新成功:", data);
-      navigate(`/item-detail/${itemId}`);
+      if (data === "更新成功") {
+        alert("募集情報を更新しました");
+        navigate(`/item-detail/${itemId}`);
+        return;
+      }
+
+        alert(data);
     })
-    .catch((error) => console.error("更新エラー:", error));
+    .catch((error) => {
+      console.error("更新エラー:", error);
+      alert("更新中にエラーが発生しました");
+    })
   };
 
 const handleDelete = () => {

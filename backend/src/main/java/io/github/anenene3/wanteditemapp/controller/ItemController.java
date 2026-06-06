@@ -54,10 +54,19 @@ public class ItemController {
     }
 
     @PutMapping("/items/{itemId}")
-    public String update(@PathVariable Long itemId, @Valid @RequestBody ItemForm itemForm) {
+    public String update(@PathVariable Long itemId, @Valid @RequestBody ItemForm itemForm, BindingResult bindingResult) {
         itemForm.setItemId(itemId);
-        itemService.update(itemForm);
-        return "更新成功";
+
+        if (bindingResult.hasErrors()) {
+            return bindingResult.getFieldError().getDefaultMessage();
+        }
+
+        int count = itemService.update(itemForm);
+        if (count == 1) {
+            return "更新成功";
+        }
+
+        return "更新失敗";
     }
     
     @DeleteMapping("/items/{itemId}")
