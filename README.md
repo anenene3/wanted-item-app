@@ -27,22 +27,21 @@
 - 募集編集
 - 募集削除
 - ログイン
+- アカウント登録
+- 自分の募集一覧表示
+- 売り手から買い手へのメッセージ送信
+- アカウント編集 / 削除
+- 入力値バリデーション
 - PostgreSQLとの接続
 - Spring Boot / MyBatis を用いたDB連携
 - React から Java API を呼び出して画面表示・登録・更新する機能
 
 ## 今後の実装予定
-- アカウント登録
-- 自分の募集一覧表示
-- 売り手から買い手へのメッセージ送信
 - 受信メッセージ一覧表示
 - 受信メッセージ詳細表示
-- アカウント編集 / 削除
 - 画像アップロード機能
-- JavaScript→TypeScript
-- 入力値バリデーション
+- JavaScriptをTypeScriptへ移行
 - README の改善
-
 
 ## 画面一覧
 - ログイン画面
@@ -89,11 +88,6 @@
 - Mapper XML
 - Database
 
-例：
-- 募集一覧表示：`GET /items`
-- 募集詳細表示：`GET /items/{itemId}`
-- 募集投稿：`POST /items`
-- 募集編集：`PUT /items/{itemId}`
 
 ## 画面遷移図
 ![画面遷移図](docs/screen-flow.png)
@@ -101,6 +95,28 @@
 ## ER図
 ![ER図](docs/wanted-item-appER図202605081343.png)
 
+## DB定義
+![DB定義](docs/db-definition-page1.png)
+
 ## シーケンス図
+### ログイン機能
+![ログイン機能](docs/login-sequence202606021546.png)
+
+### アカウント登録機能
+![アカウント登録機能](docs/signup-sequence202606021543.png)
+
+### 募集一覧機能
+![募集一覧機能](docs/item-list-sequence202606051127.png)
+
 ### 募集投稿機能
 ![募集投稿機能](docs/item-post-sequence202605271243.png)
+
+### 募集編集機能
+![募集編集機能](docs/item-edit-sequence202606050954.png)
+
+### アカウント編集機能
+![アカウント編集機能](docs/account-edit-sequence202606031721.png)
+
+### アカウント削除機能
+![アカウント削除機能](docs/account-delete-sequence202606040503.png)
+

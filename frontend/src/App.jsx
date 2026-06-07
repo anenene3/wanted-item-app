@@ -44,8 +44,8 @@ function App() {
         }
       />
       <Route
-        path="/message-send"
-        element={<MessageSend name="ゲームソフトA" />}
+        path="/message-send/:itemId"
+        element={<MessageSend/>}
       />
       <Route path="/account-edit" element={<AccountEdit />} />
       <Route path="/item-edit/:itemId" element={<ItemEdit />} />
