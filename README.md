@@ -96,7 +96,14 @@
 ![ER図](docs/wanted-item-appER図202605081343.png)
 
 ## DB定義
-![DB定義](docs/db-definition-page1.png)
+### users テーブル
+![usersテーブル定義](docs/users-table-definition.png)
+
+### items テーブル
+![itemsテーブル定義](docs/items-table-definition.png)
+
+### messages テーブル
+![messagesテーブル定義](docs/messages-table-definition.png)
 
 ## シーケンス図
 ### ログイン機能
