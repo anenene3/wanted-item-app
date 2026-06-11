@@ -96,10 +96,17 @@ const handleDelete = () => {
   })
     .then((response) => response.text())
     .then((data) => {
-      console.log("削除成功:", data);
-      navigate(`/my-items`);
+      if(data === "削除成功"){
+        alert("募集を削除しました");
+        navigate(`/my-items`);
+        return;
+      }
+      alert(data);
     })
-    .catch((error) => console.error("削除エラー:", error));
+    .catch((error) => {
+      console.error("削除エラー:", error)
+      alert("削除中にエラーが発生しました")
+    });
 };
 
   
