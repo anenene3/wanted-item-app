@@ -66,13 +66,18 @@ public class ItemController {
             return "更新成功";
         }
 
-        return "更新失敗";
+        return "削除失敗";
     }
     
     @DeleteMapping("/items/{itemId}")
     public String delete(@PathVariable Long itemId)	{
-    	itemService.delete(itemId);
-    	return "削除成功";
+    	int count = itemService.delete(itemId);
+    	
+    	if(count == 1) {
+    		return "削除成功";
+    	}
+    	
+    	return "更新失敗";
     }
     
     @GetMapping("/users/{userId}/items")
