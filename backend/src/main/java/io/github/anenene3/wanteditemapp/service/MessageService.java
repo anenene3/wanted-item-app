@@ -1,12 +1,14 @@
 package io.github.anenene3.wanteditemapp.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.Message;
 import io.github.anenene3.wanteditemapp.dto.MessageForm;
+import io.github.anenene3.wanteditemapp.dto.ReceivedMessageDto;
 import io.github.anenene3.wanteditemapp.mapper.ItemMapper;
 import io.github.anenene3.wanteditemapp.mapper.MessageMapper;
 
@@ -38,5 +40,9 @@ public class MessageService {
         message.setSentAt(LocalDateTime.now());
 
         return messageMapper.insert(message);
+    }
+    
+    public List<ReceivedMessageDto> findByReceiverUserId(Long receiverUserId){
+    	return messageMapper.findByReceiverUserId(receiverUserId);
     }
 }
