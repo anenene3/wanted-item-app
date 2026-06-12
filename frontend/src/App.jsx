@@ -32,7 +32,7 @@ function App() {
       <Route path="/my-items" element={<MyItemList />} />
       <Route path="/messages" element={<ReceivedMessageList />} />
       <Route
-        path="/messages/detail"
+        path="/messages/detail/:message.messageId"
         element={
           <ReceivedMessageDetail
             sender="yamakazu"
