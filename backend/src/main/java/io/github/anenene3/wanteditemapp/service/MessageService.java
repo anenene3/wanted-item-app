@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import io.github.anenene3.wanteditemapp.dto.Item;
 import io.github.anenene3.wanteditemapp.dto.Message;
+import io.github.anenene3.wanteditemapp.dto.MessageDetailDto;
 import io.github.anenene3.wanteditemapp.dto.MessageForm;
 import io.github.anenene3.wanteditemapp.dto.ReceivedMessageDto;
 import io.github.anenene3.wanteditemapp.mapper.ItemMapper;
@@ -44,5 +45,10 @@ public class MessageService {
     
     public List<ReceivedMessageDto> findByReceiverUserId(Long receiverUserId){
     	return messageMapper.findByReceiverUserId(receiverUserId);
+    }
+    
+    public MessageDetailDto findById(Long messageId) {
+    	
+    	return messageMapper.findById(messageId);
     }
 }

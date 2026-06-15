@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import io.github.anenene3.wanteditemapp.dto.MessageDetailDto;
 import io.github.anenene3.wanteditemapp.dto.MessageForm;
 import io.github.anenene3.wanteditemapp.dto.ReceivedMessageDto;
 import io.github.anenene3.wanteditemapp.service.MessageService;
@@ -51,5 +52,10 @@ public class MessageController {
 	@GetMapping("/users/{userId}/messages")
 	public List<ReceivedMessageDto> findByReceiverUserId(@PathVariable Long userId){
 		return messageService.findByReceiverUserId(userId);
+	}
+	
+	@GetMapping("/messages/{messageId}")
+	public MessageDetailDto findById(@PathVariable Long messageId) {
+		return messageService.findById(messageId);
 	}
 }

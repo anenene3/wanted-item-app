@@ -24,7 +24,7 @@
         );
     </insert>
     
-    <select id="findByReceiverUserId" parameterType="Long" resultType="io.github.anenene3.wanteditemapp.dto.ReceivedMessageDto">
+    <select id="findByReceiverUserId" parameterType="java.lang.Long" resultType="io.github.anenene3.wanteditemapp.dto.ReceivedMessageDto">
     	SELECT 
     		messages.message_id AS messageId,
 	        messages.item_id AS itemId,
@@ -39,6 +39,24 @@
     		ON messages.item_id = items.item_id
     	WHERE receiver_user_id = #{receiverUserId}
     	ORDER BY messages.sent_at DESC;
+    </select>
+    
+    <select id="findById" parameterType="java.lang.Long" resultType="io.github.anenene3.wanteditemapp.dto.MessageDetailDto">
+    	SELECT
+    		messages.message_id AS messageId, 
+    		messages.item_id AS itemId, 
+    		items.item_name AS itemName, 
+    		messages.sender_user_id AS senderUserId, 
+    		users.user_name AS senderUserName, 
+    		messages.message_body AS messageBody, 
+    		messages.contact AS contact,
+    		messages.sent_at AS sentAt
+    	FROM messages
+    	JOIN items
+    		ON messages.item_id = items.item_id
+    	JOIN users
+    		ON messages.sender_user_id = users.user_id
+    	WHERE messages.message_id = #{messageId};
     </select>
 
 </mapper>
