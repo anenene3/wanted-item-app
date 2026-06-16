@@ -577,6 +577,7 @@ h1 {
   text-align: left;
   line-height: 1.6;
   background-color: white;
+  overflow-wrap: anywhere;
 }
 
 .received-message-detail-contact {
@@ -587,6 +588,7 @@ h1 {
   border: 1px solid #999;
   text-align: left;
   background-color: white;
+  overflow-wrap: anywhere;
 }
 
 .received-message-detail-date {

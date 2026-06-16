@@ -20,29 +20,10 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/item-post" element={<ItemPost />} />
-      <Route
-        path="/item-detail/:itemId"
-        element={
-          <ItemDetail
-            buttonLabel="この募集に連絡する"
-            nextPath="/message-send"
-          />
-        }
-      />
+      <Route path="/item-detail/:itemId" element={<ItemDetail />} />
       <Route path="/my-items" element={<MyItemList />} />
       <Route path="/messages" element={<ReceivedMessageList />} />
-      <Route
-        path="/messages/detail/:message.messageId"
-        element={
-          <ReceivedMessageDetail
-            sender="yamakazu"
-            itemName="ゲームソフトA"
-            messageBody="はじめまして。この商品についてご購入いただきたくご連絡いたしました。"
-            contact="yamakazu@example.com"
-            date="2026/04/28 11:30:29"
-          />
-        }
-      />
+      <Route path="/messages/detail/:messageId" element={<ReceivedMessageDetail/>}/>
       <Route
         path="/message-send/:itemId"
         element={<MessageSend/>}
