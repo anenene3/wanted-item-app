@@ -33,7 +33,18 @@ function ItemDetail() {
       <h1>募集詳細</h1>
 
       <div className="item-detail-contents">
-        <div className="item-detail-image">写真</div>
+
+        <div className="item-detail-image">
+          {item.imagePath ? (
+            <img
+              src={item.imagePath}
+              alt="商品画像"
+              className="item-detail-image-tag"
+            />
+          ) : (
+            "画像無し"
+          )}
+        </div>
 
         <div className="item-detail-name">{item.itemName}</div>
 

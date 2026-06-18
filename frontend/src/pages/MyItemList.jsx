@@ -35,6 +35,7 @@ function MyItemList() {
           <ItemCard
             key={item.itemId}
             name={item.itemName}
+            imagePath={item.imagePath}
             price={item.price}
             onClick={() => navigate(`/item-edit/${item.itemId}`)}
           />

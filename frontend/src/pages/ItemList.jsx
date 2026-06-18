@@ -25,6 +25,7 @@ function ItemList() {
           <ItemCard
             key={item.itemId}
             name={item.itemName}
+            imagePath={item.imagePath}
             price={item.price}
             onClick={() => navigate(`/item-detail/${item.itemId}`)}
           />

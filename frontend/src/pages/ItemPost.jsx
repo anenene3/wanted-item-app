@@ -9,6 +9,7 @@ function ItemPost() {
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("loginUser");
@@ -21,8 +22,44 @@ function ItemPost() {
     }
   }, [navigate]);
 
-  const handleSubmit = () => {
-     if (!itemName.trim()) {
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    setSelectedFile(file);
+  };
+
+  const uploadImageToCloudinary = async () => {
+    if (!selectedFile) {
+      return "";
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("upload_preset", "wanted_item_app_unsigned");
+
+    const response = await fetch(
+      "https://api.cloudinary.com/v1_1/doknbjzie/image/upload",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error?.message || "Cloudinaryアップロード失敗");
+    }
+
+    return data.secure_url;
+  };
+
+  const handleSubmit = async () => {
+    if (!itemName.trim()) {
       alert("募集商品名を入力してください");
       return;
     }
@@ -46,7 +83,7 @@ function ItemPost() {
       alert("詳細説明・募集条件を入力してください");
       return;
     }
-    
+
     const savedUser = localStorage.getItem("loginUser");
     const loginUser = savedUser ? JSON.parse(savedUser) : null;
 
@@ -56,25 +93,40 @@ function ItemPost() {
       return;
     }
 
-    fetch("http://localhost:8080/items", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        userId: loginUser.userId,
-        imagePath: null,
-        itemName: itemName,
-        price: Number(price),
-        description: description
-      })
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log("投稿成功:", data);
+    try {
+      let uploadedImageUrl = "";
+
+      if (selectedFile) {
+        uploadedImageUrl = await uploadImageToCloudinary();
+      }
+
+      const response = await fetch("http://localhost:8080/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          userId: loginUser.userId,
+          imagePath: uploadedImageUrl,
+          itemName: itemName,
+          price: Number(price),
+          description: description
+        })
+      });
+
+      const data = await response.text();
+
+      if (data === "登録成功") {
+        alert("募集を投稿しました");
         navigate("/");
-      })
-      .catch((error) => console.error("投稿エラー:", error));
+        return;
+      }
+
+      alert(data);
+    } catch (error) {
+      console.error("投稿エラー:", error);
+      alert(error.message || "投稿中にエラーが発生しました");
+    }
   };
 
   return (
@@ -85,8 +137,9 @@ function ItemPost() {
       <div className="item-post-contents">
         <input
           className="item-post-image"
-          type="button"
-          value="画像を選択"
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
         />
 
         <p>募集商品名</p>
