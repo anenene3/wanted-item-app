@@ -26,29 +26,34 @@ function MyItemList() {
   }, [navigate]);
 
   return (
-    <div className="main">
+    <>
       <Header />
-      <h1>自分の募集一覧</h1>
-
       <div className="my-item-list">
-        {items.map((item) => (
-          <ItemCard
-            key={item.itemId}
-            name={item.itemName}
-            imagePath={item.imagePath}
-            price={item.price}
-            onClick={() => navigate(`/item-edit/${item.itemId}`)}
-          />
-        ))}
-      </div>
+        
+        <h1 className="my-item-list-title">自分の募集一覧</h1>
 
-      <input
-        className="my-item-list-post-button"
-        type="button"
-        value="募集投稿"
-        onClick={() => navigate("/item-post")}
-      />
-    </div>
+        <div className="my-item-list-contents">
+          {items.map((item) => (
+            <ItemCard
+              key={item.itemId}
+              name={item.itemName}
+              imagePath={item.imagePath}
+              price={item.price}
+              onClick={() => navigate(`/item-edit/${item.itemId}`)}
+            />
+          ))}
+        </div>
+
+        <button
+          className="my-item-list-post-button"
+          type="button"
+          onClick={() => navigate("/item-post")}
+          aria-label="募集を投稿する"
+        >
+          <span className="my-item-list-post-button-plus">+</span>
+        </button>
+      </div>
+    </>
   );
 }
 

@@ -24,17 +24,17 @@ h1 {
   text-align: left;
 }
 
-.item-card {
-  width: 100%;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
 .item-list-contents {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 20px;
   justify-content: center;
+}
+
+.item-card {
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .item-card-image {
@@ -535,18 +535,66 @@ h1 {
 
 
 .my-item-list {
-  display: flex;
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #f6f8fb;
+}
+
+.my-item-list-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 30px;
+  padding-left: 14px;
+  border-left: 5px solid #4a6fa5;
+  text-align: left;
+}
+
+.my-item-list-contents {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
   gap: 20px;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .my-item-list-post-button {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  padding: 12px 20px;
-  font-size: 20px;
+
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+
+  border: none;
+  background-color: #d95c55;
+  color: white;
+
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  transition: background-color 0.2s;
+
+  padding: 0;
 }
+
+.my-item-list-post-button-plus {
+  font-size: 40px;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+.my-item-list-post-button:hover {
+  background-color: #c94f48;
+}
+
 
 
 
