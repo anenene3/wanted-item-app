@@ -41,7 +41,7 @@ function ItemList() {
           onClick={() => navigate("/item-post")}
           aria-label="募集を投稿する"
         >
-          +
+          <span className="item-list-post-button-plus">+</span>
         </button>
       </div>
     </>  

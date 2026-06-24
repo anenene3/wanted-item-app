@@ -8,7 +8,7 @@ function ItemCard(props) {
       <span className="item-card-no-image">No Image</span>
     )}
 
-    <div className="item-card-price">{props.price}円</div>
+    <div className="item-card-price">{props.price.toLocaleString()}円</div>
   </div>
 
   <div className="item-card-name">

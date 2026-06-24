@@ -1,11 +1,14 @@
 import "../App.css";
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Bell, List } from "lucide-react";
 
 function Header() {
   const navigate = useNavigate();
 
   const [loginUser, setLoginUser] = useState(null);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("loginUser");
@@ -15,48 +18,93 @@ function Header() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        userMenuRef.current &&
+        !userMenuRef.current.contains(event.target)
+      ) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("loginUser");
     setLoginUser(null);
+    setIsUserMenuOpen(false);
     navigate("/");
   };
 
   return (
     <div className="header">
       <div className="header-logo" onClick={() => navigate("/")}>
-        wanted-item-app
+        W.I.P
       </div>
 
       {loginUser ? (
         <div className="header-menu">
-          <input
-            className="header-notification-button"
+          <button
+            className="header-icon-button"
             type="button"
-            value="通知"
             onClick={() => navigate("/messages")}
-          />
-          <input
-            className="header-my-items-button"
-            type="button"
-            value="あなたの募集"
-            onClick={() => navigate("/my-items")}
-          />
-          <div
-            className="header-user-name"
-            onClick={() => navigate("/account-edit")}
+            aria-label="通知"
           >
-            {loginUser.userName}
-          </div>
-          <input
-            className="header-logout-button"
+            <Bell size={28} strokeWidth={2.2} />
+          </button>
+
+          <button
+            className="header-icon-button"
             type="button"
-            value="ログアウト"
-            onClick={handleLogout}
-          />
+            onClick={() => navigate("/my-items")}
+            aria-label="あなたの募集"
+          >
+            <List size={28} strokeWidth={2.2} />
+          </button>
+
+          <div className="header-user-menu" ref={userMenuRef}>
+            <button
+              className="header-user-button"
+              type="button"
+              onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+            >
+              {loginUser.userName}
+            </button>
+
+            {isUserMenuOpen && (
+              <div className="header-user-dropdown">
+                <button
+                  className="header-user-dropdown-item"
+                  type="button"
+                  onClick={() => {
+                    setIsUserMenuOpen(false);
+                    navigate("/account-edit");
+                  }}
+                >
+                  アカウント編集
+                </button>
+
+                <button
+                  className="header-user-dropdown-item"
+                  type="button"
+                  onClick={handleLogout}
+                >
+                  ログアウト
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       ) : (
         <div className="header-menu">
           <input
+            className="header-login-button"
             type="button"
             value="ログイン"
             onClick={() => navigate("/login")}

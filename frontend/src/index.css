@@ -1,12 +1,19 @@
 :root {
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   color: #333;
   background-color: #fff;
 }
 
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #f6f8fb;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
 }
 
 #root {

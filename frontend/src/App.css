@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 30px;
   box-sizing: border-box;
+  background-color: #f6f8fb;
 }
 
 h1 {
@@ -38,7 +39,7 @@ h1 {
 
 .item-card-image {
   height: 180px;
-  background-color: #eef2e8;
+  background-color: #fffbf3;
   position: relative;
   overflow: hidden;
 
@@ -48,7 +49,7 @@ h1 {
 }
 
 .item-card-no-image {
-  color: #6b7280;
+  color: #64748b;
   font-size: 24px;
   transform: translateY(-16px);
 }
@@ -80,8 +81,8 @@ h1 {
 }
 
 .item-card-name {
-  height: 92px;
-  padding: 12px;
+  height: 84px;
+  padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
@@ -94,7 +95,7 @@ h1 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.4;
 }
 
@@ -108,7 +109,7 @@ h1 {
   border-radius: 50%;
 
   border: none;
-  background-color: #d9534f;
+  background-color: #d95c55;
   color: white;
 
   font-size: 40px;
@@ -121,10 +122,18 @@ h1 {
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
   transition: background-color 0.2s;
+
+  padding: 0;
+}
+
+.item-list-post-button-plus {
+  font-size: 40px;
+  line-height: 1;
+  transform: translateY(-2px);
 }
 
 .item-list-post-button:hover {
-  background-color: #c74743;
+  background-color: #c94f48;
 }
 
 
@@ -692,41 +701,131 @@ h1 {
 
 
 .header {
+  height: 72px;
+  padding: 0 40px;
+  background-color: #58cfc7;
+  color: white;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  border-bottom: 1px solid #ccc;
-  background-color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-logo {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   cursor: pointer;
+  user-select: none;
 }
 
 .header-menu {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
-.header-menu input {
-  padding: 10px 18px;
+.header-icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+
+  border: none;
+  background-color: transparent;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.header-user-menu {
+  position: relative;
+}
+
+.header-user-button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 10px;
+  min-width: 36px;
+  text-align: right;
+  border-radius: 6px;
+}
+
+.header-user-button:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.header-user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: -28px;
+  margin-top: 12px;
+
+  min-width: 140px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+.header-user-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+.header-user-dropdown-item {
+  display: block;
+  width: 100%;
+  font-size: 13.3px;
+  border: none;
+  background-color: white;
+  color: #333;
+  text-align: left;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.header-user-dropdown-item:hover {
+  background-color: #f5f7fa;
+}
+
+.header-login-button {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
   font-size: 16px;
-  border: 1px solid #999;
-  background-color: #f5f5f5;
-  cursor: pointer;
 }
 
-.header-menu div {
-  font-size: 18px;
+.header-login-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
-.header-user-name {
-  cursor: pointer;
-}
+
+
 
 
 
