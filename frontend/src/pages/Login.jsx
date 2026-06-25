@@ -36,42 +36,45 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <>
       <Header />
-      <h1>ログイン</h1>
-      <div className="login-contents">
-        <p>ユーザーID:</p>
-        <input
-          className="login-user-id"
-          value={loginId}
-          onChange={(e) => setLoginId(e.target.value)}
-        />
+      <div className="login">
+        
+        <h1 className="login-title">ログイン</h1>
+        <div className="login-contents">
+          <p>ユーザーID:</p>
+          <input
+            className="login-user-id"
+            value={loginId}
+            onChange={(e) => setLoginId(e.target.value)}
+          />
 
-        <p>パスワード:</p>
-        <input
-          className="login-password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <p>パスワード:</p>
+          <input
+            className="login-password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <input
-          className="login-send-button"
-          type="button"
-          value="ログイン"
-          onClick={handleLogin}
-        />
+          <input
+            className="login-send-button"
+            type="button"
+            value="ログイン"
+            onClick={handleLogin}
+          />
 
-        <p className="login-signup-text">アカウントをお持ちでない方</p>
+          <p className="login-signup-text">アカウントをお持ちでない方</p>
 
-        <input
-          className="login-signup-button"
-          type="button"
-          value="新規登録"
-          onClick={() => navigate("/signup")}
-        />
+          <input
+            className="login-signup-button"
+            type="button"
+            value="新規登録"
+            onClick={() => navigate("/signup")}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
