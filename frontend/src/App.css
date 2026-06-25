@@ -436,8 +436,20 @@
 
 
 
-.signup{
-  padding:30px;
+.signup {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.signup-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 5px solid #4a6fa5;
+  text-align: left;
 }
 
 .signup-contents {
@@ -446,8 +458,8 @@
 }
 
 .signup-contents p {
-  font-size: 22px;
-  margin-top: 24px;
+  font-size: 20px;
+  margin-top: 20px;
   margin-bottom: 10px;
   text-align: left;
 }
@@ -461,10 +473,20 @@
   box-sizing: border-box;
   font-size: 20px;
   padding: 12px;
-  border: 1px solid #999;
+  border: 1px solid #cfd6df;
+  background-color: #fff;
 }
 
-  .signup-send-button {
+.signup-user-name:focus,
+.signup-user-id:focus,
+.signup-password:focus,
+.signup-confirm-password:focus {
+  outline: none;
+  border-color: #58cfc7;
+  box-shadow: 0 0 0 3px rgba(88, 207, 199, 0.12);
+}
+
+.signup-send-button {
   width: 100%;
   margin-top: 30px;
   padding: 12px 24px;
@@ -473,6 +495,11 @@
   background-color: #4a6fa5;
   color: white;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.signup-send-button:hover {
+  background-color: #3f618f;
 }
 
 .signup-cancel-button {
@@ -480,9 +507,14 @@
   margin-top: 16px;
   padding: 12px 24px;
   font-size: 20px;
-  border: 1px solid #999;
-  background-color: #f5f5f5;
+  border: 1px solid #cfd6df;
+  background-color: #fff;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.signup-cancel-button:hover {
+  background-color: #f7f9fb;
 }
 
 

@@ -76,56 +76,59 @@ function SignUp(){
   };
 
   return(
-    <div className="signup">
+    <>
       <Header />
-      <h1>新規アカウント登録</h1>
-      <div className="signup-contents">
+      <div className="signup">
 
-        <p>ユーザーネーム：</p>
-        <input 
-          className="signup-user-name"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
+        <h1 className="signup-title">新規アカウント登録</h1>
+        <div className="signup-contents">
 
-        <p>ユーザーID:</p>
-        <input 
-          className="signup-user-id"
-          value={loginId}
-          onChange={(e) => setLoginId(e.target.value)}
-        />
+          <p>ユーザーネーム：</p>
+          <input 
+            className="signup-user-name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
 
-        <p>パスワード:</p>
-        <input 
-          className="signup-password" 
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <p>ユーザーID:</p>
+          <input 
+            className="signup-user-id"
+            value={loginId}
+            onChange={(e) => setLoginId(e.target.value)}
+          />
 
-        <p>パスワード（確認用）:</p>
-        <input 
-          className="signup-confirm-password" 
-          type="password"
-          value={confirmationPassword}
-          onChange={(e) => setConfirmationPassword(e.target.value)}
-        />
+          <p>パスワード:</p>
+          <input 
+            className="signup-password" 
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <input
-          className="signup-send-button"
-          type="button"
-          value="新規登録"
-          onClick={handleSignUp}
-        />
+          <p>パスワード（確認用）:</p>
+          <input 
+            className="signup-confirm-password" 
+            type="password"
+            value={confirmationPassword}
+            onChange={(e) => setConfirmationPassword(e.target.value)}
+          />
 
-        <input
-          className="signup-cancel-button"
-          type="button"
-          value="キャンセル"
-          onClick={()=> navigate(-1)}
-        />
+          <input
+            className="signup-send-button"
+            type="button"
+            value="新規登録"
+            onClick={handleSignUp}
+          />
+
+          <input
+            className="signup-cancel-button"
+            type="button"
+            value="キャンセル"
+            onClick={()=> navigate(-1)}
+          />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
