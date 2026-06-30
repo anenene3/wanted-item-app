@@ -31,16 +31,20 @@
 - 自分の募集一覧表示
 - 売り手から買い手へのメッセージ送信
 - アカウント編集 / 削除
+- 受信メッセージ一覧表示
+- 受信メッセージ詳細表示
+- 画像アップロード機能
 - 入力値バリデーション
 - PostgreSQLとの接続
 - Spring Boot / MyBatis を用いたDB連携
 - React から Java API を呼び出して画面表示・登録・更新する機能
 
 ## 今後の実装予定
-- 受信メッセージ一覧表示
-- 受信メッセージ詳細表示
-- 画像アップロード機能
+- CSSの調整
+- スクリーンショットを用いた仕様書の作成
 - JavaScriptをTypeScriptへ移行
+- JUnitを用いたテスト
+- SpringSecurity
 - README の改善
 
 ## 画面一覧
@@ -49,6 +53,7 @@
 - 募集一覧画面
 - 募集詳細画面
 - 募集投稿画面
+- 募集編集画面
 - 自分の募集一覧画面
 - メッセージ送信画面
 - 受信メッセージ一覧画面
@@ -121,9 +126,18 @@
 ### 募集編集機能
 ![募集編集機能](docs/item-edit-sequence202606050954.png)
 
+### 募集削除機能
+![募集削除機能](docs/item-delete-sequence202606111541.png)
+
+### 募集詳細表示機能
+![募集詳細表示機能](docs/item-detail-sequence20260611.png)
+
 ### アカウント編集機能
-![アカウント編集機能](docs/account-edit-sequence202606031721.png)
+![アカウント編集機能](docs/account-edit-sequence202606301706.png)
 
 ### アカウント削除機能
 ![アカウント削除機能](docs/account-delete-sequence202606040503.png)
+
+### 自分の募集一覧機能
+![自分の募集一覧機能](docs/my-item-list-sepuence202606110951.png)
 

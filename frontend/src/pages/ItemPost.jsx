@@ -10,6 +10,7 @@ function ItemPost() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState("");
 
   useEffect(() => {
     const savedUser = localStorage.getItem("loginUser");
@@ -22,14 +23,25 @@ function ItemPost() {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
     if (!file) {
+      setSelectedFile(null);
+      setPreviewUrl("");
       return;
     }
 
     setSelectedFile(file);
+    setPreviewUrl(URL.createObjectURL(file));
   };
 
   const uploadImageToCloudinary = async () => {
@@ -141,6 +153,14 @@ function ItemPost() {
           accept="image/*"
           onChange={handleFileChange}
         />
+
+        {previewUrl && (
+          <img
+            className="item-post-image-preview"
+            src={previewUrl}
+            alt="選択した画像のプレビュー"
+          />
+        )}
 
         <p>募集商品名</p>
         <input
