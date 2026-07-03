@@ -123,56 +123,59 @@ function AccountEdit(){
   };
 
   return(
-    <div className="account-edit">
+    <>
       <Header />
-      <h1>アカウント編集</h1>
-      <div className="account-edit-contents">
-        <p>ユーザーネーム：</p>
-        
-        <input
-          className="account-edit-user-name"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
+      <div className="account-edit">
+      
+        <h1 className="account-edit-title">アカウント編集</h1>
+        <div className="account-edit-contents">
+          <p>ユーザーネーム：</p>
+          
+          <input
+            className="account-edit-user-name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
 
-        <p>新しいパスワード:</p>
-        
-        <input 
-          className="account-edit-password" 
+          <p>新しいパスワード:</p>
+          
+          <input 
+            className="account-edit-password" 
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <p>新しいパスワード（確認用）:</p>
+          
+          <input 
+          className="account-edit-confirm-password" 
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          value={confirmationPassword}
+          onChange={(e) => setConfirmationPassword(e.target.value)}
+          />
 
-        <p>新しいパスワード（確認用）:</p>
-        
-        <input 
-        className="account-edit-confirm-password" 
-        type="password"
-        value={confirmationPassword}
-        onChange={(e) => setConfirmationPassword(e.target.value)}
-        />
-
-        <input
-          className="account-edit-send-button"
-          type="button"
-          value="変更確定"
-          onClick={handleUpdate}
-        />
-        <input
-          className="account-edit-cancel-button"
-          type="button"
-          value="キャンセル"
-          onClick={()=> navigate(-1)}
-        />
-        <input
-          className="account-edit-delete-button"
-          type="button"
-          value="アカウント削除"
-          onClick={handleDelete}
-        />
+          <input
+            className="account-edit-send-button"
+            type="button"
+            value="変更確定"
+            onClick={handleUpdate}
+          />
+          <input
+            className="account-edit-cancel-button"
+            type="button"
+            value="キャンセル"
+            onClick={()=> navigate(-1)}
+          />
+          <input
+            className="account-edit-delete-button"
+            type="button"
+            value="アカウント削除"
+            onClick={handleDelete}
+          />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

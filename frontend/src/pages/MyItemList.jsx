@@ -39,7 +39,7 @@ function MyItemList() {
               name={item.itemName}
               imagePath={item.imagePath}
               price={item.price}
-              onClick={() => navigate(`/item-edit/${item.itemId}`)}
+              onClick={() => navigate(`/item-detail/${item.itemId}`)}
             />
           ))}
         </div>

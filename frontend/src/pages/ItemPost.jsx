@@ -142,63 +142,74 @@ function ItemPost() {
   };
 
   return (
-    <div className="item-post">
+    <>
       <Header />
-      <h1>募集投稿</h1>
+      <div className="item-post">
+        
+        <h1 className="item-post-title">募集投稿</h1>
 
-      <div className="item-post-contents">
-        <input
-          className="item-post-image"
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
+        <div className="item-post-contents">
+          <div className="item-post-image-area">
+            {previewUrl && (
+              <img
+                className="item-post-image-preview"
+                src={previewUrl}
+                alt="選択した画像のプレビュー"
+              />
+            )}
+            <input
+              id="item-post-image-input"
+              className="item-post-image-input"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
 
-        {previewUrl && (
-          <img
-            className="item-post-image-preview"
-            src={previewUrl}
-            alt="選択した画像のプレビュー"
-          />
-        )}
+            <label htmlFor="item-post-image-input" className="item-post-image-button">
+              画像を選択
+            </label>
 
-        <p>募集商品名</p>
-        <input
-          className="item-post-name"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-        />
+          </div>
+          
 
-        <p>買い取り金額</p>
-        <input
-          className="item-post-price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-
-        <p>詳細説明・募集条件</p>
-        <textarea
-          className="item-post-description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
-        <div className="item-post-button-area">
+          <p>募集商品名</p>
           <input
-            className="item-post-cancel-button"
-            type="button"
-            value="戻る"
-            onClick={() => navigate(-1)}
+            className="item-post-name"
+            value={itemName}
+            onChange={(e) => setItemName(e.target.value)}
           />
+
+          <p>買い取り金額</p>
           <input
-            className="item-post-post-button"
-            type="button"
-            value="この内容で募集する"
-            onClick={handleSubmit}
+            className="item-post-price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
+
+          <p>詳細説明・募集条件</p>
+          <textarea
+            className="item-post-description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+
+          <div className="item-post-button-area">
+            <input
+              className="item-post-cancel-button"
+              type="button"
+              value="戻る"
+              onClick={() => navigate(-1)}
+            />
+            <input
+              className="item-post-post-button"
+              type="button"
+              value="募集を投稿"
+              onClick={handleSubmit}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
