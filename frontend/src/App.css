@@ -316,7 +316,10 @@
 
 
 .message-send {
+  width: min(100%, 1200px);
+  margin: 0 auto;
   padding: 30px;
+  box-sizing: border-box;
 }
 
 .message-send-contents {
@@ -324,46 +327,76 @@
   margin: 0 auto;
 }
 
-.message-send-item-name {
-  font-size: 26px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+.message-send-title{
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0px;
+  padding-left: 14px;
+  border-left: 5px solid #4a6fa5;
   text-align: left;
 }
 
-.message-send-item-image {
-  height: 220px;
-  background-color: #c9dfb8;
-  font-size: 36px;
-  box-sizing: border-box;
-  padding: 16px;
-  margin-bottom: 30px;
-}
-
 .message-send-contents p {
-  font-size: 22px;
+  font-size: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: left;
 }
 
-.message-send-message {
+.message-send-item-info {
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+.message-send-item-name {
+  font-size: 22px;
+  font-weight: 550;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.message-send-item-image {
+  display: block;
+  width: 320px;
+  height: 240px;
+  margin: 0 auto;
+  object-fit: cover;
+  background-color: #fffbf3;
+}
+
+.message-send-item-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a8ca5;
+  font-size: 18px;
+}
+
+.message-send-message,
+.message-send-address {
   width: 100%;
-  min-height: 180px;
   box-sizing: border-box;
   font-size: 20px;
   padding: 12px;
-  border: 1px solid #999;
+  border: 1px solid #cfd6df;
+  background-color: #fff;
+}
+
+.message-send-message {
+  min-height: 180px;
   resize: vertical;
 }
 
 .message-send-address {
-  width: 100%;
   height: 50px;
-  box-sizing: border-box;
-  font-size: 20px;
-  padding: 12px;
-  border: 1px solid #999;
+}
+
+.message-send-message:focus,
+.message-send-address:focus {
+  outline: none;
+  border-color: #58cfc7;
+  box-shadow: 0 0 0 3px rgba(88, 207, 199, 0.12);
 }
 
 .message-send-button-area {
@@ -373,24 +406,33 @@
   margin-top: 30px;
 }
 
-.message-send-cancel-button,
-.message-send-send-button{
+.message-send-send-button,
+.message-send-cancel-button {
   padding: 12px 24px;
   font-size: 20px;
-  cursor: pointer;
-}
-
-
-.message-send-cancel-button {
-  border: 1px solid #999;
-  background-color: #f5f5f5;
-  
+  min-width: 140px;
 }
 
 .message-send-send-button {
   border: none;
   background-color: #4a6fa5;
   color: white;
+  cursor: pointer;
+}
+
+.message-send-send-button:hover {
+  opacity: 0.9;
+}
+
+.message-send-cancel-button {
+  border: 1px solid #cfd6df;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.message-send-cancel-button:hover {
+  background-color: #f7f9fb;
 }
 
 

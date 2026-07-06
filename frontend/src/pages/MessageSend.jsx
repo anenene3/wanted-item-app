@@ -12,7 +12,7 @@ function MessageSend() {
   const [message, setMessage] = useState("");
   const [contact, setContact] = useState("");
   const [itemName, setItemName] = useState("");
-
+  const [imagePath, setImagePath] = useState("");
 
     useEffect(() => {
     const savedUser = localStorage.getItem("loginUser");
@@ -27,6 +27,7 @@ function MessageSend() {
       .then((response) => response.json())
       .then((data) => {
         setItemName(data.itemName);
+        setImagePath(data.imagePath);
       })
       .catch((error) => {
         console.error("商品情報取得エラー:", error);
@@ -88,45 +89,61 @@ function MessageSend() {
 
 
   return (
-    <div className="message-send">
+    <>
       <Header />
-      <h1>メッセージ送信</h1>
+      <div className="message-send">
 
-      <div className="message-send-contents">
-        <div className="message-send-item-name">{itemName}</div>
-        <div className="message-send-item-image">写真</div>
+        <h1 className="message-send-title">メッセージ送信</h1>
 
-        <p>メッセージ本文</p>
-        <textarea 
-          className="message-send-message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        >
-        </textarea>
+        <div className="message-send-contents">
+          <div className="message-send-item-info">
+            <div className="message-send-item-name">{itemName}</div>
 
-        <p>連絡先</p>
-        <input 
-          className="message-send-address" 
-          value={contact}
-          onChange={(e) => setContact(e.target.value)}
-        />
+            {imagePath ? (
+              <img
+                className="message-send-item-image"
+                src={imagePath}
+                alt="商品画像"
+              />
+            ) : (
+              <div className="message-send-item-image message-send-item-image-placeholder">
+                No Image
+              </div>
+            )}
+          </div>
 
-        <div className="message-send-button-area">
-          <input
-            className="message-send-cancel-button"
-            type="button"
-            value="キャンセル"
-            onClick={() => navigate(-1)}
+          <p>メッセージ本文</p>
+          <textarea 
+            className="message-send-message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          >
+          </textarea>
+
+          <p>連絡先</p>
+          <input 
+            className="message-send-address" 
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
           />
-          <input
-            className="message-send-send-button"
-            type="button"
-            value="送信"
-            onClick={handleSubmit}
-          />
+
+          <div className="message-send-button-area">
+            <input
+              className="message-send-cancel-button"
+              type="button"
+              value="キャンセル"
+              onClick={() => navigate(-1)}
+            />
+            <input
+              className="message-send-send-button"
+              type="button"
+              value="送信"
+              onClick={handleSubmit}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
