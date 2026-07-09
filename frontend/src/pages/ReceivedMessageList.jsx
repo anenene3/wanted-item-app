@@ -40,30 +40,33 @@ function ReceivedMessageList() {
     }, [navigate]);
 
   return (
-    <div className="received-message-list">
-      <Header />
-      <h1>受信メッセージ一覧</h1>
+    <>
+      <Header />    
+      <div className="received-message-list">
 
-      <div className="received-message-list-contents">
-        {messages.length === 0 && <p>受信メッセージはありません</p>}
+        <h1 className="received-message-list-title">受信メッセージ一覧</h1>
 
-        {messages.map((message) => (
-          <ReceivedMessageCard
-            key={message.messageId}
-            itemName={message.itemName}
-            sender={message.senderUserName}
-            messagePreview={
-              message.messageBody.length > 30
-              ? message.messageBody.slice(0, 30) + "..."
-              : message.messageBody
-            }
-            date={formatDateTime(message.sentAt)}
-            onClick={() => navigate(`/messages/detail/${message.messageId}`)}
-          />
-        ))}
+        <div className="received-message-list-contents">
+          {messages.length === 0 && (
+            <div className="received-message-empty">
+              受信メッセージはありません
+            </div>
+)}
 
+          {messages.map((message) => (
+            <ReceivedMessageCard
+              key={message.messageId}
+              itemName={message.itemName}
+              sender={message.senderUserName}
+              messagePreview={message.messageBody}
+              date={formatDateTime(message.sentAt)}
+              onClick={() => navigate(`/messages/detail/${message.messageId}`)}
+            />
+          ))}
+
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
