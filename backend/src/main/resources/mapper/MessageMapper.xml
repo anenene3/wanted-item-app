@@ -46,6 +46,7 @@
     		messages.message_id AS messageId, 
     		messages.item_id AS itemId, 
     		items.item_name AS itemName, 
+    		items.image_path AS imagePath,
     		messages.sender_user_id AS senderUserId, 
     		users.user_name AS senderUserName, 
     		messages.message_body AS messageBody, 

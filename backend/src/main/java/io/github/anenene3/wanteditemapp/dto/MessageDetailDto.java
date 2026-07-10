@@ -7,6 +7,7 @@ public class MessageDetailDto {
 	private Long messageId;
 	private Long itemId;
 	private String itemName;
+	private String imagePath;
 	private Long senderUserId;
 	private String senderUserName;
 	private String messageBody;
@@ -30,6 +31,12 @@ public class MessageDetailDto {
 	}
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	public Long getSenderUserId() {
 		return senderUserId;
