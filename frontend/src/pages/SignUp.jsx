@@ -53,7 +53,7 @@ function SignUp(){
     .then((data) => {
       if (data === "登録成功") {
         alert("アカウント登録が完了しました。ログインしてください。");
-        navigate("/login");
+        navigate("/login", { replace: true });
         return;
       }
 

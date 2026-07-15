@@ -2,10 +2,13 @@ import "../App.css";
 import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 function ItemEdit() {
   const navigate = useNavigate();
   const { itemId } = useParams();
+  const location = useLocation();
+  const from = location.state?.from;
 
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
@@ -128,7 +131,7 @@ function ItemEdit() {
 
       if (data === "更新成功") {
         alert("募集情報を更新しました");
-        navigate(`/item-detail/${itemId}`);
+        navigate(`/item-detail/${itemId}`, {state: {from: from}, replace: true});
         return;
       }
 

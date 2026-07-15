@@ -76,7 +76,7 @@ function AccountEdit(){
 
         localStorage.setItem("loginUser", JSON.stringify(updatedLoginUser));
         alert("アカウント情報を更新しました");
-        navigate("/");
+        navigate("/", { replace: true });
         return;
       }
         alert(data);
@@ -110,7 +110,7 @@ function AccountEdit(){
         if (data === "削除成功") {
           localStorage.removeItem("loginUser");
           alert("アカウントを削除しました");
-          navigate("/login");
+          navigate("/login", { replace: true });
           return;
         }
 

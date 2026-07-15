@@ -16,6 +16,7 @@
             created_at,
             updated_at
         FROM items
+        ORDER BY updated_at DESC, item_id DESC
     </select>
 
 	<select id="findById" resultType="io.github.anenene3.wanteditemapp.dto.Item">
@@ -81,6 +82,7 @@
 	        updated_at
 	    FROM items
 	    WHERE user_id = #{userId}
+	    ORDER BY updated_at DESC, item_id DESC
 	</select>
 	
 </mapper>

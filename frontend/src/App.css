@@ -154,7 +154,7 @@
 
 .item-detail-contents {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
+  grid-template-columns: 4fr 3fr;
   gap: 40px;
   align-items: start;
   margin-bottom: 40px;
@@ -162,9 +162,8 @@
 
 .item-detail-image {
   width: 100%;
-  aspect-ratio: 4 / 3;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -173,13 +172,16 @@
 }
 
 .item-detail-image.no-image {
+  aspect-ratio: 4 / 3;
+  align-items: center;
   background-color: #fffbf3;
 }
 
 .item-detail-image-tag {
   width: 100%;
-  height: 100%;
+  max-height: 480px;
   object-fit: contain;
+  object-position: center top;
   display: block;
 }
 

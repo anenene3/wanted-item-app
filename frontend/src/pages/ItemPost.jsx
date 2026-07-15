@@ -130,7 +130,7 @@ function ItemPost() {
 
       if (data === "登録成功") {
         alert("募集を投稿しました");
-        navigate("/");
+        navigate("/", { replace: true });
         return;
       }
 

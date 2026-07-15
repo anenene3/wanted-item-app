@@ -30,7 +30,7 @@ function Login() {
         const data = JSON.parse(text);
 
         localStorage.setItem("loginUser", JSON.stringify(data));
-        navigate("/");
+        navigate("/", { replace: true });
       })
       .catch((error) => console.error("ログインエラー:", error));
   };

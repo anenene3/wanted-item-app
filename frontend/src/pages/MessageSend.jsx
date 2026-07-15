@@ -2,11 +2,14 @@ import "../App.css";
 import Header from "../components/Header";
 import {useNavigate, useParams} from "react-router";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 
 
 function MessageSend() {
   const navigate=useNavigate();
+  const location = useLocation();
+  const from = location.state?.from;
 
   const { itemId } = useParams();
   const [message, setMessage] = useState("");
@@ -72,7 +75,7 @@ function MessageSend() {
       .then((data) => {
         if (data === "送信成功") {
           alert("メッセージを送信しました");
-          navigate(`/item-detail/${itemId}`);
+          navigate(`/item-detail/${itemId}`, {state: {from: from}, replace: true});
           return;
         }
 

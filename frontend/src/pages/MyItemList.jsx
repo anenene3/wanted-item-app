@@ -39,7 +39,7 @@ function MyItemList() {
               name={item.itemName}
               imagePath={item.imagePath}
               price={item.price}
-              onClick={() => navigate(`/item-detail/${item.itemId}`)}
+              onClick={() => navigate(`/item-detail/${item.itemId}`, {state: { from: "my-items"}})}
             />
           ))}
         </div>

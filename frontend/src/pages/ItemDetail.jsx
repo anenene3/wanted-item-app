@@ -2,10 +2,13 @@ import "../App.css";
 import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 function ItemDetail() {
   const navigate = useNavigate();
   const { itemId } = useParams();
+  const location = useLocation();
+  const from = location.state?.from;
 
   const [item, setItem] = useState(null);
   const [loginUser, setLoginUser] = useState(null);
@@ -24,6 +27,14 @@ function ItemDetail() {
   if (!item) {
     return <div>読み込み中...</div>;
   }
+
+  const handleBack = () => {
+  if (from === "my-items") {
+    navigate("/my-items");
+  } else {
+    navigate("/");
+  }
+  };
 
   const isMyItem = loginUser && item.userId === loginUser.userId;
 
@@ -57,7 +68,7 @@ function ItemDetail() {
                 className="item-detail-cancel-button"
                 type="button"
                 value="戻る"
-                onClick={() => navigate(-1)}
+                onClick={handleBack}
               />
 
               {isMyItem ? (
@@ -65,14 +76,14 @@ function ItemDetail() {
                   className="item-detail-post-button"
                   type="button"
                   value="編集する"
-                  onClick={() => navigate(`/item-edit/${item.itemId}`)}
+                  onClick={() => navigate(`/item-edit/${item.itemId}`, {state: {from: from}})}
                 />
               ) : (
                 <input
                   className="item-detail-post-button"
                   type="button"
                   value="連絡する"
-                  onClick={() => navigate(`/message-send/${item.itemId}`)}
+                  onClick={() => navigate(`/message-send/${item.itemId}`, {state: {from: from}})}
                 />
               )}
             </div>
