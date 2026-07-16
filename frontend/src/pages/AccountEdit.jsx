@@ -123,7 +123,7 @@ function AccountEdit(){
   };
 
   return(
-    <>
+    <div className="page-background">
       <Header />
       <div className="account-edit">
       
@@ -175,7 +175,7 @@ function AccountEdit(){
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

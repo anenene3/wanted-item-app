@@ -169,7 +169,7 @@ const handleDelete = () => {
   
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="item-edit">
 
@@ -241,7 +241,7 @@ const handleDelete = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

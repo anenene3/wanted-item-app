@@ -142,7 +142,7 @@ function ItemPost() {
   };
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="item-post">
         
@@ -209,7 +209,7 @@ function ItemPost() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

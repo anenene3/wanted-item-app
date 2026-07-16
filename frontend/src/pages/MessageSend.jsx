@@ -92,7 +92,7 @@ function MessageSend() {
 
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="message-send">
 
@@ -146,7 +146,7 @@ function MessageSend() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

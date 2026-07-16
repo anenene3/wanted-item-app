@@ -76,7 +76,7 @@ function SignUp(){
   };
 
   return(
-    <>
+    <div className="page-background">
       <Header />
       <div className="signup">
 
@@ -128,7 +128,7 @@ function SignUp(){
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

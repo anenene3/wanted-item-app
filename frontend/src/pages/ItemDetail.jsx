@@ -39,7 +39,7 @@ function ItemDetail() {
   const isMyItem = loginUser && item.userId === loginUser.userId;
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="item-detail">
         <h1 className="item-detail-title">募集詳細</h1>
@@ -95,7 +95,7 @@ function ItemDetail() {
           <div className="item-detail-description">{item.description}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

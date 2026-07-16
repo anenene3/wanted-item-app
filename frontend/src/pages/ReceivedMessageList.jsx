@@ -40,7 +40,7 @@ function ReceivedMessageList() {
     }, [navigate]);
 
   return (
-    <>
+    <div className="page-background">
       <Header />    
       <div className="received-message-list">
 
@@ -66,7 +66,7 @@ function ReceivedMessageList() {
 
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

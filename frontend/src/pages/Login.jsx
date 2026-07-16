@@ -36,7 +36,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="login">
         
@@ -74,7 +74,7 @@ function Login() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

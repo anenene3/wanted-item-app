@@ -45,7 +45,7 @@ function ReceivedMessageDetail() {
 
 
   return (
-    <>
+    <div className="page-background">
       <Header />
       <div className="received-message-detail">
         <h1 className="received-message-detail-title">受信メッセージ詳細</h1>
@@ -134,7 +134,7 @@ function ReceivedMessageDetail() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 
 }

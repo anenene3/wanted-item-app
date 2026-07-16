@@ -16,7 +16,7 @@ function ItemList() {
   }, []);
 
   return (
-    <>
+    <div className="page-background">
       <Header />
 
       <div className="item-list">
@@ -44,7 +44,7 @@ function ItemList() {
           <span className="item-list-post-button-plus">+</span>
         </button>
       </div>
-    </>  
+    </div>  
   );
 }
 
