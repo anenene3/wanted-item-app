@@ -223,7 +223,7 @@ const handleDelete = () => {
             <input
               className="item-edit-cancel-button"
               type="button"
-              value="戻る"
+              value="キャンセル"
               onClick={() => navigate(-1)}
             />
             <input

@@ -197,7 +197,7 @@ function ItemPost() {
             <input
               className="item-post-cancel-button"
               type="button"
-              value="戻る"
+              value="キャンセル"
               onClick={() => navigate(-1)}
             />
             <input

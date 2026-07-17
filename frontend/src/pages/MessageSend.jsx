@@ -123,7 +123,7 @@ function MessageSend() {
           >
           </textarea>
 
-          <p>連絡先</p>
+          <p>返信用の連絡先</p>
           <input 
             className="message-send-address" 
             value={contact}

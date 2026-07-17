@@ -98,11 +98,11 @@ body {
 }
 
 .item-card-name {
-  height: 84px;
+  height: 82px;
   padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   background-color: #fff;
 }
 
@@ -934,7 +934,7 @@ body {
 
 .received-message-card-sender {
   font-size: 15px;
-  color: #4a6fa5;
+  color: #4f8f8a;
   margin-bottom: 6px;
   text-align: left;
 }

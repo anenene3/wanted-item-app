@@ -54,7 +54,8 @@ function Header() {
             className="header-icon-button"
             type="button"
             onClick={() => navigate("/messages")}
-            aria-label="通知"
+            aria-label="受信メッセージ"
+            title="受信メッセージ"
           >
             <Bell size={28} strokeWidth={2.2} />
           </button>
@@ -63,7 +64,8 @@ function Header() {
             className="header-icon-button"
             type="button"
             onClick={() => navigate("/my-items")}
-            aria-label="あなたの募集"
+            aria-label="自分の募集"
+            title="自分の募集"
           >
             <List size={28} strokeWidth={2.2} />
           </button>
