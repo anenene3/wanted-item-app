@@ -66,7 +66,7 @@ public class ItemController {
             return "更新成功";
         }
 
-        return "削除失敗";
+        return "更新失敗";
     }
     
     @DeleteMapping("/items/{itemId}")
@@ -77,7 +77,7 @@ public class ItemController {
     		return "削除成功";
     	}
     	
-    	return "更新失敗";
+    	return "削除失敗";
     }
     
     @GetMapping("/users/{userId}/items")
